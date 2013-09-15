@@ -1,0 +1,1 @@
+include ':GuitarTuner', ':libraries:PdCore', ':libraries:AndroidMidi'

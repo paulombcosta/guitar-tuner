@@ -1,0 +1,26 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    >
+
+    <TableRow
+        android:layout_width="match_parent"
+        >
+        <Button
+            android:id="@+id/e_button"
+            android:text="E"/>
+
+        <Button
+            android:id="@+id/a_button"
+            android:text="A"/>
+
+        <Button
+            android:id="@+id/d_button"
+            android:text="D"/>
+
+
+    </TableRow>
+
+</TableLayout>

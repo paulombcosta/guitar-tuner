@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="GuitarTunerProjectLibrariesAndroidMidiUnspecified.aar" >
+        <source path="/home/paulo/Projetos/GuitarTunerProject/GuitarTuner/build/exploded-bundles/GuitarTunerProjectLibrariesAndroidMidiUnspecified.aar/assets" />
+    </dataSet>
+    <dataSet config="GuitarTunerProjectLibrariesPdCoreUnspecified.aar" >
+        <source path="/home/paulo/Projetos/GuitarTunerProject/GuitarTuner/build/exploded-bundles/GuitarTunerProjectLibrariesPdCoreUnspecified.aar/assets" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/home/paulo/Projetos/GuitarTunerProject/GuitarTuner/src/main/assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/home/paulo/Projetos/GuitarTunerProject/GuitarTuner/src/debug/assets" />
+    </dataSet>
+
+</merger>
