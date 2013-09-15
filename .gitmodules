@@ -1,0 +1,6 @@
+[submodule "libraries/pd-for-android"]
+	path = libraries/pd-for-android
+	url = git@github.com:pmbcosta/pd-for-android.git
+[submodule "libraries/midi"]
+	path = libraries/midi
+	url = git@github.com:pmbcosta/btmidi.git
