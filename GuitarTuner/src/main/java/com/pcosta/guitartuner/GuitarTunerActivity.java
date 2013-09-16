@@ -63,6 +63,13 @@ public class GuitarTunerActivity extends RoboActivity {
         PdAudio.stopAudio();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        PdAudio.release();
+        PdBase.release();
+    }
+
     private void initGui() {
         setContentView(R.layout.activity_main);
         eButton.setOnClickListener(onClickListener);
