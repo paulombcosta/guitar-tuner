@@ -20,6 +20,22 @@
             android:id="@+id/d_button"
             android:text="D"/>
 
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        >
+        <Button
+            android:id="@+id/g_button"
+            android:text="G"/>
+
+        <Button
+            android:id="@+id/b_button"
+            android:text="B"/>
+
+        <Button
+            android:id="@+id/ee_button"
+            android:text="E"/>
 
     </TableRow>
 
