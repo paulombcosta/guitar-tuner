@@ -1,8 +1,11 @@
 package com.pcosta.guitartuner;
 
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.google.inject.Inject;
 
 import org.puredata.android.io.AudioParameters;
 import org.puredata.android.io.PdAudio;
@@ -39,12 +42,17 @@ public class GuitarTunerActivity extends RoboActivity {
     @InjectView(R.id.ee_button)
     private Button eeButton;
 
+    @Inject
+    private AudioManager audioManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-            initGui();
-            initPd();
-            loadPatch();
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), 0);
+        initGui();
+        initPd();
+        loadPatch();
     }
 
     @Override
