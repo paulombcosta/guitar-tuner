@@ -1,4 +1,5 @@
 buildscript {
+
     repositories {
         mavenCentral()
     }
@@ -7,10 +8,7 @@ buildscript {
     }
 }
 apply plugin: 'android'
-
-repositories {
-    mavenCentral()
-}
+apply plugin: 'maven'
 
 android {
     compileSdkVersion 17
@@ -22,7 +20,13 @@ android {
     }
 }
 
+repositories {
+    maven { url 'http://mvnrepository.com' }
+    mavenCentral()
+}
+
 dependencies {
     compile 'com.android.support:support-v4:13.0.0'
     compile project(':libraries:pd-for-android:PdCore')
+    compile 'org.roboguice:roboguice:2.0'
 }
