@@ -42,13 +42,9 @@ public class GuitarTunerActivity extends RoboActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try {
             initGui();
             initPd();
             loadPatch();
-        } catch (IOException e) {
-            Ln.e(e, "Error");
-        }
     }
 
     @Override
@@ -117,19 +113,38 @@ public class GuitarTunerActivity extends RoboActivity {
         PdBase.sendBang("trigger");
     }
 
-    private void initPd() throws IOException {
-        int sampleRate = AudioParameters.suggestSampleRate();
-        PdAudio.initAudio(sampleRate,0 ,2, 8, true);
-        dispatcher = new PdUiDispatcher();
-        PdBase.setReceiver(dispatcher);
+    private void initPd() {
+        try {
+            int sampleRate = AudioParameters.suggestSampleRate();
+            PdAudio.initAudio(sampleRate,0 ,2, 8, true);
+            dispatcher = new PdUiDispatcher();
+            PdBase.setReceiver(dispatcher);
+        } catch (IOException e) {
+            Ln.e(e, "Error on starting the pd audio");
+        }
     }
 
-    private void loadPatch() throws IOException {
-        File dir = getFilesDir();
-        IoUtils.extractZipResource(getResources().openRawResource(R.raw.tuner), dir, true);
-        File patchFile = new File(dir, "tuner.pd");
-        PdBase.openPatch(patchFile.getAbsolutePath());
+    private void loadPatch() {
+        File filesDir = getFilesDir();
+        extractPath(filesDir);
+        openPatch(filesDir);
+    }
 
+    private void extractPath(final File fileDir) {
+        try {
+            IoUtils.extractZipResource(getResources().openRawResource(R.raw.tuner), fileDir, true);
+        } catch (IOException e) {
+           Ln.e(e, "Error extracting the patches from the zip file");
+        }
+    }
+
+    private void openPatch(final File fileDir) {
+        try {
+            File patchFile = new File(fileDir, "tuner.pd");
+            PdBase.openPatch(patchFile.getAbsolutePath());
+        } catch (IOException e) {
+            Ln.e(e, "Error opening the patch file");
+        }
     }
 
 
