@@ -24,6 +24,5 @@ android {
 
 dependencies {
     compile 'com.android.support:support-v4:13.0.0'
-    compile project(':libraries:AndroidMidi')
-    compile project(':libraries:PdCore')
+    compile project(':libraries:pd-for-android:PdCore')
 }
