@@ -30,3 +30,21 @@ dependencies {
     compile project(':libraries:pd-for-android:PdCore')
     compile 'org.roboguice:roboguice:2.0'
 }
+
+task patchesToZip(type: Zip, dependsOn: 'createRawFolder') {
+    destinationDir file("src/main/res/raw")
+    baseName "tuner"
+    from "patches"
+}
+
+project.afterEvaluate {
+    preBuild.dependsOn("patchesToZip")
+}
+
+task createRawFolder {
+    rawDir = new File('src/main/res/raw')
+    if (rawDir.exists()) {
+        rawDir.delete();
+    }
+    rawDir.mkdirs();
+}
