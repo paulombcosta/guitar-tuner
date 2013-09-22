@@ -32,4 +32,6 @@ local.properties
 *~
 *.swp
 
+build/
 GuitarTuner/build/
+GuitarTuner/src/main/res/raw/tuner.zip
